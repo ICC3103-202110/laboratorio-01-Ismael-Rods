@@ -87,7 +87,6 @@ row_amount=int(input('''Enter the number of rows on your board,
                         thinking about the number of pairs and consider 10 columns\n
                         For Example: 20 pairs = 4 rows: '''))
 deck=shuffle_card_list(n)
-generate_board(deck,row_amount)
 print('\n')
 game_board=cens_list(n) 
 finish_list=empty_board_list(n)
