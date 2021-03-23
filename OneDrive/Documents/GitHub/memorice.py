@@ -1,12 +1,12 @@
 from random import shuffle
 from tabulate import tabulate
-def empty_board_list(n):
+def empty_board_list(n):    #function used to break the while loop
     list=[]
     for g in range(n):
         list.append('')
         list.append('')
     return list
-def shuffle_card_list(n):
+def shuffle_card_list(n): #deck shuffling function
     i=1
     list=[]
     for g in range(n):
@@ -16,13 +16,13 @@ def shuffle_card_list(n):
     shuffle(list)
     return(list)
 
-def cens_list(n):
-    list=[]
+def cens_list(n):           #function that creates the list 
+    list=[]                 #to print the board upside down
     for g in range(n):
         list.append('*')
         list.append('*')
     return list
-def generate_board(list1,row_amount):
+def generate_board(list1,row_amount): #function used to print the deck and game board
     l=[]
     x=0
     y=10
@@ -51,7 +51,6 @@ def turn_p1(P1):
         game_board[x]=''
         game_board[x2]=''
         print('Good! You scored! Pick a card again! ')
-        P1+=1
         return (True,True)
     else:
         game_board[x]='*'
@@ -73,7 +72,6 @@ def turn_p2(P2):
         game_board[x]=''
         game_board[x2]=''
         print('Good! You scored! Pick a card again! ')
-        P2+=1
         return (False,False)
     else:
         game_board[x]='*'
@@ -85,7 +83,9 @@ print('Welcome!')
 P1=0
 P2=0
 n= int(input('Enter number of cards to play:'))
-row_amount=int(input('Enter the number of rows on your board, thinking about the number of pairs and consider 10 columns\nFor Example: 20 pairs = 4 rows: '))
+row_amount=int(input('''Enter the number of rows on your board,
+                        thinking about the number of pairs and consider 10 columns\n
+                        For Example: 20 pairs = 4 rows: '''))
 deck=shuffle_card_list(n)
 generate_board(deck,row_amount)
 print('\n')
@@ -112,5 +112,4 @@ if P1>P2:
     print('P1 wins!')    
 elif P1<P2:
     print('P2 wins!')
-elif P1==P2:
-    print('Tie!')
+
